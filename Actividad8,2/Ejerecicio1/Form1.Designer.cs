@@ -30,17 +30,17 @@
         {
             tbPatente = new TextBox();
             tbImporte = new TextBox();
-            this.btnConfirmar = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             lsbVer = new ListBox();
-            this.btnActualizar = new Button();
-            this.btnImportar = new Button();
             btnExportar = new Button();
             dateTimePicker = new DateTimePicker();
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
+            btnImportar = new Button();
+            btnActualizar = new Button();
+            btnConfirmar = new Button();
             SuspendLayout();
             // 
             // tbPatente
@@ -56,15 +56,6 @@
             tbImporte.Name = "tbImporte";
             tbImporte.Size = new Size(125, 27);
             tbImporte.TabIndex = 2;
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.Location = new Point(365, 87);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new Size(116, 52);
-            this.btnConfirmar.TabIndex = 3;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -101,24 +92,6 @@
             lsbVer.Size = new Size(289, 224);
             lsbVer.TabIndex = 7;
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new Point(365, 217);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new Size(116, 49);
-            this.btnActualizar.TabIndex = 8;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.Location = new Point(365, 302);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new Size(116, 49);
-            this.btnImportar.TabIndex = 9;
-            this.btnImportar.Text = "Importar";
-            this.btnImportar.UseVisualStyleBackColor = true;
-            // 
             // btnExportar
             // 
             btnExportar.Location = new Point(365, 383);
@@ -141,20 +114,49 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnImportar
+            // 
+            btnImportar.Location = new Point(365, 300);
+            btnImportar.Name = "btnImportar";
+            btnImportar.Size = new Size(116, 48);
+            btnImportar.TabIndex = 12;
+            btnImportar.Text = "Importar";
+            btnImportar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(365, 217);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(116, 48);
+            btnActualizar.TabIndex = 13;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.Location = new Point(365, 104);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(116, 48);
+            btnConfirmar.TabIndex = 14;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(517, 450);
+            Controls.Add(btnConfirmar);
+            Controls.Add(btnActualizar);
+            Controls.Add(btnImportar);
             Controls.Add(dateTimePicker);
             Controls.Add(btnExportar);
-            Controls.Add(this.btnImportar);
-            Controls.Add(this.btnActualizar);
             Controls.Add(lsbVer);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(this.btnConfirmar);
             Controls.Add(tbImporte);
             Controls.Add(tbPatente);
             Name = "Form1";
@@ -179,5 +181,8 @@
         private DateTimePicker dateTimePicker;
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
+        private Button btnImportar;
+        private Button btnActualizar;
+        private Button btnConfirmar;
     }
 }

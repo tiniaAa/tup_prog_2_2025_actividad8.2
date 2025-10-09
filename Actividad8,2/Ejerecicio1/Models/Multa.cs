@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ejerecicio1.Models
 {
-    public  class Multa:IComparable
+    public  class Multa:IComparable,IExportable
     {
         public string Patente { get; set; } 
         public DateOnly Vencimiento { get; set; }
@@ -16,13 +16,19 @@ namespace Ejerecicio1.Models
 
         public Multa() { }
 
+        public Multa(string Patente, DateOnly vencimiento, double importe)
+        {
+            this.Patente = Patente;
+            this.Vencimiento = vencimiento;
+            this.Importe = importe;
+        }
         public bool Importar (string data,IExportador exportador)
         {
-            return true;
+            return exportador.Importar(data,this);
         }
         public string Exportar (IExportador exportador)
         {
-            return "";
+            return exportador.Exportar(this);
         }
         public int CompareTo(Object obj)
         {
@@ -38,5 +44,8 @@ namespace Ejerecicio1.Models
         {
             return $"{Patente}-{Vencimiento}-{Importe}";
         }
+
+
+
     }
 }
