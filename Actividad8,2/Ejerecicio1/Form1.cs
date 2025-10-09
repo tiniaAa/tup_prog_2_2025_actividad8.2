@@ -1,4 +1,5 @@
 using Ejerecicio1.Models;
+using Ejerecicio1.Models.Exportadores;
 
 namespace Ejerecicio1
 {
@@ -44,6 +45,43 @@ namespace Ejerecicio1
             {
                 lsbVer.Items.Add(m);
             }
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "(csv)|*.csv|(json)|*.json|";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string name = openFileDialog1.FileName;
+                int tipo = openFileDialog1.FilterIndex;
+
+                FileStream fs = new FileStream(name, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+
+                CSVExportador csvexportador = null;
+                XMLExportador xmlexportador = null;
+                if (tipo == 1)
+                {
+                    csvexportador = new CSVExportador();
+                }
+                if (tipo == 2)
+                {
+                    xmlexportador = new XMLExportador();
+                }
+                while (!sr.EndOfStream)
+                {
+                    string linea = sr.ReadLine();
+
+                    IExportable multa = new Multa();
+                    IExportable exportador = null;
+
+                    
+
+                    
+                }
+
+            }
+
         }
     }
 }

@@ -122,6 +122,7 @@
             btnImportar.TabIndex = 12;
             btnImportar.Text = "Importar";
             btnImportar.UseVisualStyleBackColor = true;
+            btnImportar.Click += btnImportar_Click;
             // 
             // btnActualizar
             // 

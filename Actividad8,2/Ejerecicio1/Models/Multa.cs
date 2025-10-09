@@ -42,7 +42,7 @@ namespace Ejerecicio1.Models
 
         public override string ToString()
         {
-            return $"{Patente}-{Vencimiento}-{Importe}";
+            return $"{Patente}-{Vencimiento:dd/MM/yyyy}-{Importe}";
         }
 
 

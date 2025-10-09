@@ -2,11 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Ejerecicio1.Models.Exportadores
 {
-    internal class XMLExportador
+    public class XMLExportador : IExportador
     {
+        public string Exportar(IExportador exportador)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Exportar(Multa m)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool Importar(string daa, Multa multa)
+        {
+            Regex r = new Regex(@"<Patente>(\w{3}\d{3})</Patente><Vencimienteo>(\d{2}/\d{2}/\d{4})</Vencimiento><Importe>(\d+,\d*)</Importe>",RegexOptions.IgnoreCase);
+            Match m = r.Match(daa);
+
+            if (m.Success)
+            {
+                string patente = m.Groups[1].Value;
+                DateOnly vencimiento = DateOnly.ParseExact(m.Groups[2].Value, "dd/MM/yyyy");
+                double importe = Convert.ToDouble(m.Groups[3].Value);
+
+
+                multa.Patente = patente;
+                multa.Importe = importe;
+                multa.Vencimiento = vencimiento;
+
+                return true;
+            }
+            else return false;
+        }
     }
 }
