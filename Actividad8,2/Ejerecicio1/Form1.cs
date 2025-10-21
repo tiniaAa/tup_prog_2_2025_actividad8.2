@@ -17,13 +17,13 @@ namespace Ejerecicio1
             IExportable nuevo = null;
 
             string patente = tbPatente.Text;
-            DateOnly vencimiento = new DateOnly(dateTimePicker.Value.Year, dateTimePicker.Value.Month, dateTimePicker.Value.Day);
+            DateTime vencimiento = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, dateTimePicker.Value.Day);
             double Importe = Convert.ToDouble(tbImporte.Text);
 
             nuevo = new Multa(patente, vencimiento, Importe);
 
             multas.Sort();
-            int idx = multas.BinarySearch(n);
+            int idx = multas.BinarySearch(nuevo);
             if (idx >= 0)
             {
                 Multa multa = multas[idx] as Multa;
@@ -49,36 +49,42 @@ namespace Ejerecicio1
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "(csv)|*.csv|(json)|*.json|";
+            openFileDialog1.Filter = "(csv)|*.csv|(json)|*.json|(xml)|*.xml|(txt)|*.txt";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string name = openFileDialog1.FileName;
+                FileStream fs= null;
+                StreamReader sr =null;
+
+                string path = openFileDialog1.FileName;
                 int tipo = openFileDialog1.FilterIndex;
+                IExportador exportador = (new ExportadorFactory().GetInstance(tipo));
 
-                FileStream fs = new FileStream(name, FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
+                fs = new FileStream(path,FileMode.Open,FileAccess.Read);
+                sr = new StreamReader(fs);
 
-                CSVExportador csvexportador = null;
-                XMLExportador xmlexportador = null;
-                if (tipo == 1)
-                {
-                    csvexportador = new CSVExportador();
-                }
-                if (tipo == 2)
-                {
-                    xmlexportador = new XMLExportador();
-                }
+                sr.ReadLine();
                 while (!sr.EndOfStream)
                 {
                     string linea = sr.ReadLine();
-
                     IExportable multa = new Multa();
-                    IExportable exportador = null;
 
-                    
+                    if (multa.Importar(linea,exportador)==true)
+                    {
+                        multas.Sort();
+                        int idx = multas.BinarySearch(multa);
+                        if (idx >= 0)
+                        {
 
-                    
+
+
+                        }
+                        else { multas.Add(multa); }
+
+                    }
+
                 }
+
+
 
             }
 

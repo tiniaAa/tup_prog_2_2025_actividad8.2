@@ -21,13 +21,14 @@ namespace Ejerecicio1.Models.Exportadores
             string[] atributos = daa .Split(';');
 
             string patente = atributos[0];
-            DateOnly vencimiento = DateOnly.Parse(atributos[1]);
+            DateTime vencimiento = Convert.ToDateTime(atributos[1]);
             double importe = Convert.ToDouble(atributos[2]);
 
             m.Patente = patente;
             m.Vencimiento = vencimiento;
             m.Importe = importe;
 
+            return true;
             
 
         }

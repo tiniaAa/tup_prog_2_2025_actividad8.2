@@ -10,13 +10,13 @@ namespace Ejerecicio1.Models
     public  class Multa:IComparable,IExportable
     {
         public string Patente { get; set; } 
-        public DateOnly Vencimiento { get; set; }
+        public DateTime Vencimiento { get; set; }
 
         public double Importe { get; set; }
 
         public Multa() { }
 
-        public Multa(string Patente, DateOnly vencimiento, double importe)
+        public Multa(string Patente, DateTime vencimiento, double importe)
         {
             this.Patente = Patente;
             this.Vencimiento = vencimiento;
@@ -35,7 +35,7 @@ namespace Ejerecicio1.Models
             Multa multa = obj as Multa;
             if(obj!=null)
             {
-                return Patente.CompareTo(multa.Patente))
+                return Patente.CompareTo(multa.Patente);
             }
             return -1;
         }

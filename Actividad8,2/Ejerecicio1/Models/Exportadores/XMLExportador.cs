@@ -10,14 +10,11 @@ namespace Ejerecicio1.Models.Exportadores
 {
     public class XMLExportador : IExportador
     {
-        public string Exportar(IExportador exportador)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public string Exportar(Multa m)
         {
-            throw new NotImplementedException();
+            return $"<Multa><Patente>{m.Patente}</Patente><Vencimiento>{m.Vencimiento}</Vencimiento><Importe>{m.Importe}</Vencimiento>";
         }
 
 
@@ -29,7 +26,7 @@ namespace Ejerecicio1.Models.Exportadores
             if (m.Success)
             {
                 string patente = m.Groups[1].Value;
-                DateOnly vencimiento = DateOnly.ParseExact(m.Groups[2].Value, "dd/MM/yyyy");
+                DateTime vencimiento = Convert.ToDateTime(m.Groups[2].Value);
                 double importe = Convert.ToDouble(m.Groups[3].Value);
 
 
