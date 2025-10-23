@@ -18,7 +18,7 @@ namespace Ejerecicio1.Models.Exportadores
         {
             daa = daa.Trim();
             
-            string[] atributos = daa .Split(';');
+            string[] atributos = daa.Split(';');
 
             string patente = atributos[0];
             DateTime vencimiento = Convert.ToDateTime(atributos[1]);
@@ -28,9 +28,7 @@ namespace Ejerecicio1.Models.Exportadores
             m.Vencimiento = vencimiento;
             m.Importe = importe;
 
-            return true;
-            
-
+            return true;           
         }
     }
 }

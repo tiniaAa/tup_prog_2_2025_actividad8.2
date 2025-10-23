@@ -45,69 +45,76 @@
             // 
             // tbPatente
             // 
-            tbPatente.Location = new Point(150, 57);
+            tbPatente.Location = new Point(131, 43);
+            tbPatente.Margin = new Padding(3, 2, 3, 2);
             tbPatente.Name = "tbPatente";
-            tbPatente.Size = new Size(125, 27);
+            tbPatente.Size = new Size(110, 23);
             tbPatente.TabIndex = 0;
             // 
             // tbImporte
             // 
-            tbImporte.Location = new Point(150, 153);
+            tbImporte.Location = new Point(131, 115);
+            tbImporte.Margin = new Padding(3, 2, 3, 2);
             tbImporte.Name = "tbImporte";
-            tbImporte.Size = new Size(125, 27);
+            tbImporte.Size = new Size(110, 23);
             tbImporte.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(38, 57);
+            label1.Location = new Point(33, 43);
             label1.Name = "label1";
-            label1.Size = new Size(58, 20);
+            label1.Size = new Size(47, 15);
             label1.TabIndex = 4;
             label1.Text = "Patente";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(38, 103);
+            label2.Location = new Point(33, 77);
             label2.Name = "label2";
-            label2.Size = new Size(91, 20);
+            label2.Size = new Size(73, 15);
             label2.TabIndex = 5;
             label2.Text = "Vencimiento";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(38, 153);
+            label3.Location = new Point(33, 115);
             label3.Name = "label3";
-            label3.Size = new Size(62, 20);
+            label3.Size = new Size(49, 15);
             label3.TabIndex = 6;
             label3.Text = "Importe";
             // 
             // lsbVer
             // 
             lsbVer.FormattingEnabled = true;
-            lsbVer.Location = new Point(38, 208);
+            lsbVer.ItemHeight = 15;
+            lsbVer.Location = new Point(33, 156);
+            lsbVer.Margin = new Padding(3, 2, 3, 2);
             lsbVer.Name = "lsbVer";
-            lsbVer.Size = new Size(289, 224);
+            lsbVer.Size = new Size(253, 169);
             lsbVer.TabIndex = 7;
             // 
             // btnExportar
             // 
-            btnExportar.Location = new Point(365, 383);
+            btnExportar.Location = new Point(319, 287);
+            btnExportar.Margin = new Padding(3, 2, 3, 2);
             btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(116, 49);
+            btnExportar.Size = new Size(102, 37);
             btnExportar.TabIndex = 10;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
             // 
             // dateTimePicker
             // 
             dateTimePicker.CustomFormat = "dd//MM/yyyy";
             dateTimePicker.Format = DateTimePickerFormat.Custom;
-            dateTimePicker.Location = new Point(150, 103);
+            dateTimePicker.Location = new Point(131, 77);
+            dateTimePicker.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(125, 27);
+            dateTimePicker.Size = new Size(110, 23);
             dateTimePicker.TabIndex = 11;
             // 
             // openFileDialog1
@@ -116,9 +123,10 @@
             // 
             // btnImportar
             // 
-            btnImportar.Location = new Point(365, 300);
+            btnImportar.Location = new Point(319, 225);
+            btnImportar.Margin = new Padding(3, 2, 3, 2);
             btnImportar.Name = "btnImportar";
-            btnImportar.Size = new Size(116, 48);
+            btnImportar.Size = new Size(102, 36);
             btnImportar.TabIndex = 12;
             btnImportar.Text = "Importar";
             btnImportar.UseVisualStyleBackColor = true;
@@ -126,9 +134,10 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(365, 217);
+            btnActualizar.Location = new Point(319, 163);
+            btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(116, 48);
+            btnActualizar.Size = new Size(102, 36);
             btnActualizar.TabIndex = 13;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -136,9 +145,10 @@
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(365, 104);
+            btnConfirmar.Location = new Point(319, 78);
+            btnConfirmar.Margin = new Padding(3, 2, 3, 2);
             btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(116, 48);
+            btnConfirmar.Size = new Size(102, 36);
             btnConfirmar.TabIndex = 14;
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
@@ -146,9 +156,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 450);
+            ClientSize = new Size(452, 338);
             Controls.Add(btnConfirmar);
             Controls.Add(btnActualizar);
             Controls.Add(btnImportar);
@@ -160,6 +170,7 @@
             Controls.Add(label1);
             Controls.Add(tbImporte);
             Controls.Add(tbPatente);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

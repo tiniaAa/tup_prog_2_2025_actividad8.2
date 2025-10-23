@@ -3,22 +3,39 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Ejerecicio1.Models
 {
     public  class Multa:IComparable,IExportable
     {
-        public string Patente { get; set; } 
-        public DateTime Vencimiento { get; set; }
+        string patente;
+        public string Patente
+        {
+            get { return patente; }
+            set
+            {
+                Regex regex = new Regex(@"^[a-z]{3}\d{3}$", RegexOptions.IgnoreCase);
+                Match match = regex.Match(value);
+                if (match.Success)
+                {
+                    this.patente = value;
+                }
+                else { throw new FormatoPatenteNoValidoException(); }
 
+            }
+        }
+
+
+        public DateTime Vencimiento { get; set; }
         public double Importe { get; set; }
 
         public Multa() { }
 
         public Multa(string Patente, DateTime vencimiento, double importe)
         {
-            this.Patente = Patente;
+            this.patente = Patente;
             this.Vencimiento = vencimiento;
             this.Importe = importe;
         }
